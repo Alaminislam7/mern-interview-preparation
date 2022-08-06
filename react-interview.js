@@ -837,24 +837,66 @@ reduce example::
 //############################QUESTION NO: 47
 /*
 ##How you use usememo and useCallback??
+useMemo is very similar to useCallback. A use callback hook should be used when we want to memoize a callback and to memoize the result of a function to avoid expensive computation we can use usememo
 
+function memoUsed() {
+  const _  = useMemo((arg1) => {
+    // React ignores arguments
+    return ‘insert JSX here’
+  }, [])
+
+  return _
+}
+
+function callbackUsed() {
+  const _  = useCallback((what, where) => {
+    // can be used inside functions
+    return ‘insert ${what} ${where}’
+  })
+
+  return _(‘JSX’, ‘here’)
+}
 */
+
+
+
+
+
+
 //############################QUESTION NO: 48
 /*
 ##What are classbased lifecycle method in react??
-
+    Each component in React has a lifecycle which you can monitor and manipulate during its three main phases. The three phases are: Mounting, Updating, and Unmounting.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 49
 /*
 ##How you able to componentDidmount in functional component??
-
+    The equivalent of componentDidMount in hooks is the useEffect function. Functions passed to useEffect are executed on every component rendering—unless you pass a second argument to it.
 
 */
+
+
+
+
+
+
 //############################QUESTION NO: 50
 /*
 ##Tell me about javascript currieng??
-
+    Currying is an advanced technique of working with functions.Currying is a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c) . Currying doesn't call a function.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 51
 /*
 ##Why are you use Redux??
@@ -865,111 +907,515 @@ reduce example::
 ##How Redux work??
 
 */
+
+
+
+
+
+
 //############################QUESTION NO: 53
 /*
 ##What is the purpose of redux middleware in react??
-
+    Redux Middleware allows you to intercept every action sent to the reducer so you can make changes to the action or cancel the action. Middleware helps you with logging, error reporting, making asynchronous requests, and a whole lot more.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 54
 /*
-##
+##What is diffrent between vertual dom and real dom??
+    Change can be made easily --------- Change can be expensive
+    Minimal mamory wasted ------------- High demand mamory wasted
+    Cannot update html directly ------- update html directly
+    Faster update --------------------- Slower update
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 55
+/*
+##How to create new react app??
+    1. install node js on the computer.
+    2.install text editor of you choice.
+    3. and open terminal and run command create react app.
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 56
+/*
+##How do create react app components??and how do pass properties, props and how do access and manage state??
+    import React from "react";
+    import ReactDOM from "react-dom";
+
+    function App() {
+    return <Greeting name="Nathan" age={27} occupation="Software Developer" />;
+    }
+
+    function Greeting(props) {
+    return (
+        <p>
+        Hello! I'm {props.name}, a {props.age} years old {props.occupation}.
+        Pleased to meet you!
+        </p>
+    );
+    }
+
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 57
+/*
+##Whats different between shadow dom and vertual dom??
+
+    Shadow dom create small pieces of the dom object which has their own, isolated scope for the element they represent
+
+    virtual dom is creating a copy of the whole dom object.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 58
+/*
+##Whats different between create element and clone elements??
+    Create element is the code that jsx gets compiled or converted into is used by reacting to create elements.
+
+    Clone element is used for cloning element and passing them new props.the method is used to describe how the user interface look.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 59
+/*
+##What are statefull component??
+
+*/
+//############################QUESTION NO: 60
+/*
+##Does react app have any limitation and are they??
+    1. React is a view library not a full blown framework.
+    2. Integrating react js into a traditional mvc framework require some aditional configaration.
+    3. The code complexity increase with inline templating and jsx.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 61
+/*
+##Can render component conditionary??
+    Conditional rendering is a term to describe the ability to render different user interface (UI) markup if a condition is true or false.
+
+
+    Rendering external data from an API.
+    Showing or hiding elements.
+    Implementing permission levels.
+    Handling authentication and authorization.
+
+
+    import React, { Component } from "react";
+    import './App.css';
+
+    class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        isLoggedIn: true
+        };
+    }
+
+    render() {
+        return (
+        <div className="App">
+            <h1>
+            This is a Demo showing several ways to implement Conditional Rendering in React.
+            </h1>
+            <button>Login</button>
+            <button>Logout</button>
+        </div>
+        );
+    }
+    }
+    export default App;
+
+
+
+
+    class App extends Component {
+
+    render() {
+        let {isLoggedIn} = this.state;
+
+        return (
+        <div className="App">
+            <h1>
+            This is a Demo showing several ways to implement Conditional Rendering in React.
+            </h1>
+            {
+            if(isLoggedIn){
+                return <button>Logout</button>
+            } else{
+                return <button>Login</button>
+            }
+            }
+        </div>
+        );
+    }
+    }
+
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 62
+/*
+##Api call to data fetch??
+
+
+   useEffect(() => {
+    const getData = async () => {
+        try {
+        const response = await axios.get(
+            `https://jsonplaceholder.typicode.com/posts?_limit=10`
+        );
+        setData(response.data);
+        setError(null);
+        } catch (err) {
+        setError(err.message);
+        setData(null);
+        } finally {
+        setLoading(false);
+        }
+    };
+    getData();
+    }, []);
+
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 63
+/*
+##You need to findout closet value from array??
+    var counts = [4, 9, 15, 6, 2],
+    goal = 5;
+
+    var closest = counts.reduce(function(prev, curr) {
+    return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
+    });
+
+    console.log(closest);
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 64
+/*
+##Javascript first class function??
+    A programming language is said to have First-class functions if functions in that language are treated like other variables. So the functions can be assigned to any other variable or passed as an argument or can be returned by another function.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 65
+/*
+##What is Ecma??
+    ECMAScript, also known as JavaScript, is a programming language adopted by the European Computer Manufacturer's Association as a standard for performing computations in Web applications. ECMAScript is the official client-side scripting language of VoiceXML.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 66
+/*
+##One Counter component in react??
+
+*/
+
+
+
+
+
+//############################QUESTION NO: 67
+/*
+##What diffrent smart component and dump component??
+    Smart components are responsible for managing state and knowing when to re-render a component. Rarely includes styling: Since dumb components focus on styling, it allows the smart component to focus on functionality without the clutter of styles too.
+*/
+//############################QUESTION NO: 68
+/*
+
+
+
+
+
+
+##What is the different Jsx and object??
+    JSX stands for JavaScript XML. JSX allows us to write HTML in React. JSX makes it easier to write and add HTML in React.
+    Objects are variables that can store many values, including functions and other objects, including instantiated class objects.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 69
+/*
+##What is javascript primitive or non primitive data type??
+    The above data types in JavaScript are divided into two broad categories, primitive and non-primitive. The Primitive Data types in JavaScript include Number, String, Boolean, Undefined, Null and Symbol. The Non-Primitive data type has only one member i.e. the Object.
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 70
+/*
+##What is the type of none??
+
+*/
+
+
+
+
+
+
+//############################QUESTION NO: 71
+/*
+##Can you tell me a new feature in js??
+
+*/
+//############################QUESTION NO: 72
+/*
+##Can you tell me about map and filter??
+
+*/
+//############################QUESTION NO: 73
+/*
+##What's diffrent object.freeze and object.sell??
+
+*/
+//############################QUESTION NO: 74
+/*
+##Explain the prototype inheritance??
+
+*/
+//############################QUESTION NO: 75
+/*
+##What is the call, apply and bind method??
+
+*/
+//############################QUESTION NO: 76
+/*
+##In React bind method or cs6 feature use??
+
+*/
+//############################QUESTION NO: 77
+/*
+##What is the controlled and uncontrolled component in react??
+
+*/
+//############################QUESTION NO: 78
+/*
+##What is the atrribute in css??
+
+*/
+//############################QUESTION NO: 79
+/*
+##What is the formatting tag??
+
+*/
+//############################QUESTION NO: 80
+/*
+##What is the different bold and strong??
+
+*/
+//############################QUESTION NO: 81
+/*
+##What is sass is better than css??
+
+*/
+//############################QUESTION NO: 82
+/*
+##What is box modal in css??
+
+*/
+//############################QUESTION NO: 83
+/*
+##How to center contant in css??
+
+*/
+//############################QUESTION NO: 84
+/*
+##What is shodo classes??
+
+*/
+//############################QUESTION NO: 85
+/*
+##What is ecmascript??
+
+*/
+//############################QUESTION NO: 86
+/*
+##What are data type in javascript??
+
+*/
+//############################QUESTION NO: 87
+/*
+##What are string method??
+
+*/
+//############################QUESTION NO: 88
+/*
+##What are the split??
+
+*/
+//############################QUESTION NO: 89
+/*
+##What are the array method??
+
+*/
+//############################QUESTION NO: 90
+/*
+##What is array map??
+
+*/
+//############################QUESTION NO: 91
+/*
+##What is forEach??
+
+*/
+//############################QUESTION NO: 92
+/*
+##What is diffrent between normal function and array function??
+
+*/
+//############################QUESTION NO: 93
+/*
+##What is Redux??
+
+*/
+//############################QUESTION NO: 94
+/*
+##What is flux??
+
+*/
+//############################QUESTION NO: 95
+/*
+##Can you right any program from deepcoppie of nested objects??
+
+*/
+//############################QUESTION NO: 96
+/*
+##What do Hoisting??
+
+*/
+//############################QUESTION NO: 97
+/*
+##How could be prevent Hoisting??
+
+*/
+//############################QUESTION NO: 98
+/*
+##How to use React bind method??
+
+*/
+//############################QUESTION NO: 99
+/*
+##One of key features in React??
+
+*/
+//############################QUESTION NO: 100
+/*
+##What different between state and props??
+
+*/
+//############################QUESTION NO: 101
 /*
 ##
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 102
 /*
-##
+##Class component and functional component which is best and why??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 103
 /*
-##
+##How to reuse code in better way??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 104
 /*
-##
+##What is the middleware??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 105
 /*
-##
+##What is state in react and how it is use??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 106
 /*
-##
+##What is single page application??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 107
 /*
-##
+##What is context api??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 108
 /*
-##
+##How do implement key and ref in react??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 109
 /*
-##
+##What is class in js??
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 110
 /*
-##
+##What different pure react js and next js
 
 */
-//############################QUESTION NO: 26
+//############################QUESTION NO: 110
 /*
-##
+##What is depandensi injection in react??
 
-*/
-//############################QUESTION NO: 26
-/*
-##
 
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
-//############################QUESTION NO: 26
-/*
-##
-
-*/
 
 
 

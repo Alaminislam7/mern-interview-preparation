@@ -1214,73 +1214,247 @@ function callbackUsed() {
 //############################QUESTION NO: 71
 /*
 ##Can you tell me a new feature in js??
+    1. Negative index with .at()
+        let foo = [1,2,3,4,5];
+        foo.at(3); // == 3
 
+    2. hasOwn() in action
+        let foo = Object.create(null);
+        foo.hasOwnProperty = function(){};
+        Object.hasOwnProperty(foo, 'hasOwnProperty'); // Error: Cannot convert object to primitive value
+        Object.hasOwn(foo, 'hasOwnProperty'); // true
+
+    3. Error cause
+        throw new Error('Error message', { cause: errorCause });
 */
+
+
+
+
+
+
 //############################QUESTION NO: 72
 /*
 ##Can you tell me about map and filter??
+    map creates a new array by transforming every element in an array individually. filter creates a new array by removing elements that don't belong. reduce , on the other hand, takes all of the elements in an array and reduces them into a single value. Just like map and filter , reduce is defined on Array.
 
+    const task_names = tasks.map(task => task.name)
+    console.log(task_names) // ['Write for Envato Tuts+', 'Work out', 'Procrastinate on DuoLingo']
+
+    const total = [1, 2, 3, 4, 5].reduce((previous, current) => previous+current),0;
+    console.log(total) // 15
 */
+
+
+
+
+
+
 //############################QUESTION NO: 73
 /*
 ##What's diffrent object.freeze and object.sell??
+    Both freeze and seal are used to create non extensible objects in JavaScript, but there are plenty of differences between them.
 
+    It takes a parameter as an object	It takes parameters as an object
+    Its return type is of the object type.	Its return type is of the sealed object type.
+
+    object.seal :: 
+        var obj = {
+            // assigns 10 to value
+            value: 10
+        };
+        // creates a non-extensible object
+        Object.seal(obj);
+        // the value gets updated to 20
+        obj.value = 20;
+        console.log(obj.value);     ////ans: 20    
+
+    object.freeze();
+        var obj = {
+        // assigns 10 to value
+        value: 10
+        };
+        // creates a non-extensible object
+        Object.freeze(obj);
+        // updates the value
+        obj.value = 20;
+        // but cannot change the existing value
+        console.log(obj.value);     //ans 10
 */
+
+
+
+
+
+
 //############################QUESTION NO: 74
 /*
 ##Explain the prototype inheritance??
-
+    Every object with it's methods and properties contains an internal and hidden property know as [[prototype]]. Traditionaly in order to get and set the object.setprototypeOf. Nowdays, in modern language, it is being set using __proto__.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 75
 /*
 ##What is the call, apply and bind method??
+    Call is a function that helps you change the context of the invoking function. In layperson's terms, it helps you replace the value of this inside a function with whatever value you want.
 
+    Apply is very similar to the call function. The only difference is that in apply you can pass an array as an argument list.
+
+    Bind is a function that helps you create another function that you can execute later with the new context of this that is provided.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 76
 /*
 ##In React bind method or cs6 feature use??
 
+    class Foo extends Component {
+        constructor(props) {
+            super(props);
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick() {
+            console.log('Click happened');
+        }
+
+        render() {
+            return <Button onClick={this.handleClick}>Click Me</Button>;
+        }
+    }
+
+
+    function Foo() {
+        const memoizedHandleClick = useCallback(
+            () => {
+            console.log('Click happened');
+            },
+            [], // Tells React to memoize regardless of arguments.
+        );
+        return <Button onClick={memoizedHandleClick}>Click Me</Button>;
+    }
 */
+
+
+
+
+
+
 //############################QUESTION NO: 77
 /*
 ##What is the controlled and uncontrolled component in react??
+    A controlled component in one that takes it's current value through props and notify changes though callback lin onChange.
+    <input type= "text" value={value} onChange={handleChange}/>
 
+    A uncontrolled component is one that stores it's own state internally, and you query the dom using a ref to find it's current value when you need it.
+    <input type="text" ref={inputRef}/>
 */
+
+
+
+
+
+
 //############################QUESTION NO: 78
 /*
 ##What is the atrribute in css??
+    The CSS Attribute Selector is used to select an element with some specific attribute or attribute value.
 
+    input[type="text"] {
+        width: 150px;
+        display: block;
+        margin-bottom: 10px;
+        background-color: yellow;
+    }
 */
+
+
+
+
+
+
 //############################QUESTION NO: 79
 /*
 ##What is the formatting tag??
-
+    These tags are used to make text bold, italicized, or underlined.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 80
 /*
 ##What is the different bold and strong??
-
+    The difference between the two tags is that the bold tag is intended to draw attention to the text, while the strong tag also highlights the text semantically and indicates that this is an important word or section of text.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 81
 /*
 ##What is sass is better than css??
+    Sass is a meta-language on top of CSS that's used to describe the style of a document cleanly and structurally, with more power than flat CSS allows.
 
+    $brand-color: #fc3;
+    a {
+        color: $brand-color;
+    }
+    nav {
+        background-color: $brand-color;
+    }
 */
+
+
+
+
+
+
 //############################QUESTION NO: 82
 /*
 ##What is box modal in css??
-
+    In CSS, the term "box model" is used when talking about design and layout. The CSS box model is essentially a box that wraps around every HTML element.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 83
 /*
 ##How to center contant in css??
-
+    To just center the text inside an element, use text-align: center; This text is centered.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 84
 /*
 ##What is shodo classes??
-
+    Pseudo-classes enable you to target an element when it's in a particular state, as if you had added a class for that state to the DOM.
 */
+
+
+
+
+
 //############################QUESTION NO: 85
 /*
 ##What is ecmascript??
@@ -1289,38 +1463,83 @@ function callbackUsed() {
 //############################QUESTION NO: 86
 /*
 ##What are data type in javascript??
-
+    In Javascript, there are five basic, or primitive, types of data. The five most basic types of data are strings, numbers, booleans, undefined, and null. We refer to these as primitive data types. A single variable can only store a single type of data.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 87
 /*
 ##What are string method??
-
+    A string is a sequence of one or more characters that may consist of letters, numbers, or symbols. Strings in JavaScript are primitive data types and immutable, which means they are unchanging.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 88
 /*
 ##What are the split??
+    The split() method splits a string into an array of substrings. The split() method returns the new array.
 
+    let text = "How are you doing today?";
+    const myArray = text.split(" ");
 */
+
+
+
+
+
+
 //############################QUESTION NO: 89
 /*
 ##What are the array method??
-
+    In programming, an array is a collection of elements or items. Arrays store data as elements and retrieve them back when you need them. 
 */
+
+
+
+
+
+
 //############################QUESTION NO: 90
 /*
 ##What is array map??
-
+    map() creates a new array from calling a function for every array element. map() calls a function once for each element in an array.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 91
 /*
 ##What is forEach??
-
+    forEach is a JavaScript Array method. It is used to execute a function on each item in an array. Lists, sets, and all other list-like objects support the forEach method.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 92
 /*
 ##What is diffrent between normal function and array function??
-
+    Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 93
 /*
 ##What is Redux??
@@ -1329,38 +1548,87 @@ function callbackUsed() {
 //############################QUESTION NO: 94
 /*
 ##What is flux??
-
+    Flux: It is a JavaScript Architecture or pattern for UI which runs on a unidirectional data flow and has a centralized dispatcher.It is an application architecture designed to build client-side web apps.
 */
 //############################QUESTION NO: 95
 /*
 ##Can you right any program from deepcoppie of nested objects??
+    5 Ways to Deep Copy Objects in JavaScript.
+
+    1.using json.parse and json.stringify === var obj2 = JSON.parse(JSON.stringify(obj));
+    2. using loadesh === var obj2 = _.cloneDeep(obj, true);
+    3. Using Object.assign === var obj2 = Object.assign({}, obj);
 
 */
+
+
+
+
+
+
 //############################QUESTION NO: 96
 /*
 ##What do Hoisting??
-
+    In javascript Hoisting is the default behavior of moving all the declarations at the top of the scope before code execution. Basically, it gives us an advantage that no matter where function and variable are declared, they are moved to the top of their scope is global or local.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 97
 /*
 ##How could be prevent Hoisting??
-
+    Variables defined with let and const are hoisted to the top of the block, but not initialized. Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 98
 /*
 ##How to use React bind method??
-
+    Binding methods helps ensure that the second snippet works the same way as the first one. With React, typically you only need to bind the methods you pass to other components.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 99
 /*
 ##One of key features in React??
-
+        JSX (JavaScript Syntax Extension)
+    Virtual DOM.
+    One-way data binding.
+    Performance.
+    Extensions.
+    Conditional statements.
+    Components.
+    Simplicity.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 100
 /*
 ##What different between state and props??
-
+    State:: The state is a data structure that start with a default value when a component mount
+    Props:: Props are a component configuration. props do not have to just be data-callback function may be passed in props.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 101
 /*
 ##
@@ -1369,8 +1637,15 @@ function callbackUsed() {
 //############################QUESTION NO: 102
 /*
 ##Class component and functional component which is best and why??
-
+    functional component is best.
+    It is generally believed that functional components are faster than class components, and the React team has been promising optimizations to functional components.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 103
 /*
 ##How to reuse code in better way??
@@ -1386,34 +1661,105 @@ function callbackUsed() {
 ##What is state in react and how it is use??
 
 */
+
+
+
+
 //############################QUESTION NO: 106
 /*
 ##What is single page application??
-
+    Single page application (SPA) is a single page (hence the name) where a lot of information stays the same and only a few pieces need to be updated at a time.
 */
+
+
+
+
+
 //############################QUESTION NO: 107
 /*
 ##What is context api??
 
 */
+
+
+
+
+
+
 //############################QUESTION NO: 108
 /*
 ##How do implement key and ref in react??
-
+    Refs is the shorthand used for references in React. It is similar to keys in React. It is an attribute which makes it possible to store a reference to particular DOM nodes or React elements. It provides a way to access React DOM nodes or React elements and how to interact with it.
 */
+
+
+
+
+
 //############################QUESTION NO: 109
 /*
 ##What is class in js??
-
+    Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics.
 */
+
+
+
+
+
+
 //############################QUESTION NO: 110
 /*
 ##What different pure react js and next js
-
+    Next JS is a framework that holds React on its base, while React JS is an open-source JavaScript library, developed and maintained by Facebook. Next JS is used to create web applications and performs server-side rendering, whereas React JS focuses on rendering towards the DOM.
 */
 //############################QUESTION NO: 110
 /*
 ##What is depandensi injection in react??
+    Dependency injection (DI) is a pattern where components necessary for your code to run are hot-swappable. This means that your dependencies are not hard-coded in your implementation and can change as your environment changes.
+
+
+
+
+
+
+
+//############################QUESTION NO: 111
+
+const ip = [2, 4, 5, 6, 7, 8, -9];
+const getMaxNumber = (array) => {
+    if(!array.length) {
+        throw new Error("Input array is empty");
+    }
+    let maxNum = array[0];
+    for(const item of array) {
+        if(item && item> maxNum) {
+            maxNum = item;
+        }
+    }
+    return maxNum;
+
+}
+//there was problem with the variable name thats why i have update it latter
+const result = getMaxNumber(ip);
+console.log("result:", result);
+const addThreeNum = (a, b, c) => {
+    return a + b + c;
+}
+
+
+
+const fetchTheData = (url) => {
+    return fetch(url);
+}
+
+fetchTheData("https://api.twitter.com")
+    .then((response) => response.json())
+    .then ((data) => {
+        const result = data.map(item => {
+            return item.capsule_serial;
+        })
+        console.log("result", result);
+    })
 
 
 
@@ -1422,6 +1768,41 @@ function callbackUsed() {
 
 
 
+//############################QUESTION NO: 112
+const findClosetinArray = (arr, val) => {
+    if(arr.length >= 1) {
+        let minDiff = Math.abs(val-arr[0]);
+        let closetVal = arr[0];
+
+        for(let i = 0; i< arr.length; i++) {
+            let diff = Math.abs(arr[i] - val)
+            if(diff < minDiff) {
+                minDiff = diff;
+                closetVal = arr[i];
+            }
+        }
+        return closetVal
+    }
+    return "Empty input array"
+}
+const inArr = [10, 5, 2, 1, 5, 13, 14, 22]
+const targetVal = 12
+let op = findClosetinArray(inArr, targetVal)
+console.log(op);//13
+
+
+
+
+
+
+//############################QUESTION NO: 112
+let a = {
+    name: "test"
+}
+let b = {...a}
+b.name = "test"
+console.log(a.name);
+console.log(b.name);
 
 
 
@@ -1429,159 +1810,83 @@ function callbackUsed() {
 
 
 
-//############################QUESTION NO: 65
-
-// const ip = [2, 4, 5, 6, 7, 8, -9];
-// const getMaxNumber = (array) => {
-//     if(!array.length) {
-//         throw new Error("Input array is empty");
-//     }
-//     let maxNum = array[0];
-//     for(const item of array) {
-//         if(item && item> maxNum) {
-//             maxNum = item;
-//         }
-//     }
-//     return maxNum;
-
-// }
-// //there was problem with the variable name thats why i have update it latter
-// const result = getMaxNumber(ip);
-// console.log("result:", result);
-// const addThreeNum = (a, b, c) => {
-//     return a + b + c;
-// }
-
-
-
-// const fetchTheData = (url) => {
-//     return fetch(url);
-// }
-
-// fetchTheData("https://api.twitter.com")
-//     .then((response) => response.json())
-//     .then ((data) => {
-//         const result = data.map(item => {
-//             return item.capsule_serial;
-//         })
-//         console.log("result", result);
-//     })
+//############################QUESTION NO: 113
+let a = {
+    name: "test",
+    add: {
+        code: 1
+    }
+}
+let b = {...a}
+b.add.code = 2;
+console.log(a.add.code);
+console.log(b.add.code);
 
 
 
 
 
-//############################QUESTION NO: 67
-// const findClosetinArray = (arr, val) => {
-//     if(arr.length >= 1) {
-//         let minDiff = Math.abs(val-arr[0]);
-//         let closetVal = arr[0];
-
-//         for(let i = 0; i< arr.length; i++) {
-//             let diff = Math.abs(arr[i] - val)
-//             if(diff < minDiff) {
-//                 minDiff = diff;
-//                 closetVal = arr[i];
-//             }
-//         }
-//         return closetVal
-//     }
-//     return "Empty input array"
-// }
-// const inArr = [10, 5, 2, 1, 5, 13, 14, 22]
-// const targetVal = 12
-// let op = findClosetinArray(inArr, targetVal)
-// console.log(op);//13
+//############################QUESTION NO: 114
+function x(){
+    var i = 1;
+    setTimeout(function(){
+        console.log(i);
+    },1000);
+}
+x();
 
 
 
 
 
-//############################QUESTION NO: 124
-// let a = {
-//     name: "test"
-// }
-// let b = {...a}
-// b.name = "test"
-// console.log(a.name);
-// console.log(b.name);
+
+
+//############################QUESTION NO: 115
+const [user, setUser] = useState([]);
+const appLink = 'http://localhost/data'
+useEffect(() => {
+    async function fetchAPI(){
+        fetch(appLink)
+        .then((res) => res.json())
+        .then(res => setUser(res))
+        .catch(err => console.error(err))
+    }
+    fetchAPI();
+}, [])
+
+user?.map((data, i) => {
+    <p key={i}>{data.firstName}</p>
+})
 
 
 
 
 
-//############################QUESTION NO: 125
-// let a = {
-//     name: "test",
-//     add: {
-//         code: 1
-//     }
-// }
-// let b = {...a}
-// b.add.code = 2;
-// console.log(a.add.code);
-// console.log(b.add.code);
+
+//############################QUESTION NO: 116
+var f = "8"
+let a = 1
+console.log((+f) + a + 1);
 
 
 
 
 
-//############################QUESTION NO: 126
-// function x(){
-//     var i = 1;
-//     setTimeout(function(){
-//         console.log(i);
-//     },1000);
-// }
-// x();
 
+//############################QUESTION NO: 117
+const [empName, setEmpName] = useState("");
+const inputRef = createRef(null);
 
-
-
-
-//############################QUESTION NO: 128
-//const [user, setUser] = useState([]);
-// const appLink = 'http://localhost/data'
-// useEffect(() => {
-//     async function fetchAPI(){
-//         fetch(appLink)
-//         .then((res) => res.json())
-//         .then(res => setUser(res))
-//         .catch(err => console.error(err))
-//     }
-//     fetchAPI();
-// }, [])
-
-// user?.map((data, i) => {
-//     <p key={i}>{data.firstName}</p>
-// })
-
-
-
-
-
-//############################QUESTION NO: 133
-// var f = "8"
-// let a = 1
-// console.log((+f) + a + 1);
-
-
-
-
-
-//############################QUESTION NO: 134
-// const [empName, setEmpName] = useState("");
-// const inputRef = createRef(null);
-
-// const handleOnChange = (event) => {
-//     const {value} = event.target;
-//     setEmpName(value;)
-// }
-// <div>
-//     <input ref="inputRef" type="text" value="empName"/>
-//     <select>
-//         {emp.map((item) => {
-//             return <option/>
-//         })}
-//     </select>
-// </div>
+const handleOnChange = (event) => {
+    const {value} = event.target;
+    setEmpName(value;)
+}
+<div>
+    <input ref="inputRef" type="text" value="empName"/>
+    <select>
+        {emp.map((item) => {
+            return <option/>
+        })}
+    </select>
+</div>
+*/
